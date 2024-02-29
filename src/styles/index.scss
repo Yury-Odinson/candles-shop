@@ -1,0 +1,30 @@
+@import './variables';
+@import "node_modules/normalize-scss/sass/normalize";
+@import './reset';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  background-color: #c7c7c7;
+}
+
+.header {
+  padding: 10px;
+  border-bottom: 1px solid red;
+
+  &-wrapper {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+}
