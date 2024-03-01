@@ -1,0 +1,62 @@
+@import './variables';
+@import "node_modules/normalize-scss/sass/normalize";
+@import './reset';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  padding: 5px 10px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+a.active {
+  color: #fff;
+  background-color: $background;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  background-color: #c7c7c7;
+}
+
+.header {
+  margin-bottom: 50px;
+  font-size: 1.3rem;
+  font-weight: 100;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+
+  &-wrapper {
+    margin: 0 auto;
+    padding: 10px 40px;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-logo,
+    &>div{
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+  }
+
+  &-basket {
+    padding-left: 40px;
+  }
+
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+}
