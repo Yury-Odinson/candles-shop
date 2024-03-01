@@ -29,14 +29,14 @@ a.active {
 }
 
 .header {
-  //border-bottom: 1px solid red;
   margin-bottom: 50px;
   font-size: 1.3rem;
   font-weight: 100;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 
   &-wrapper {
     margin: 0 auto;
+    padding: 10px 40px;
     max-width: 1440px;
     display: flex;
     justify-content: space-between;
@@ -52,7 +52,7 @@ a.active {
   }
 
   &-basket {
-    padding: 10px;
+    padding-left: 40px;
   }
 
   ul {
