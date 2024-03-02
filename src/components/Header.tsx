@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
-import {links} from "../tools/confs";
+import {links} from "../tools/utils";
 import headerLogo from "../assets/img/headerLogo.png";
 
 export const Header = () => {
