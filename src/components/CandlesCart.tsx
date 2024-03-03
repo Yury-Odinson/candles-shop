@@ -1,6 +1,7 @@
-import {CandlesCartProps} from "../tools/types";
+import {Candle} from "../tools/types";
+import {addToCart} from "../tools/store";
 
-export const CandlesCart = ({name, description, img, price,  id}: CandlesCartProps) => {
+export const CandlesCard = ({name, description, img, price,  id}: Candle) => {
 
     return (
         <div className="card">
@@ -9,7 +10,7 @@ export const CandlesCart = ({name, description, img, price,  id}: CandlesCartPro
             <p className="card__description">{description}</p>
             <div className="card-actions">
                 <p className="card__price"><span className="card__priceNum">{price}</span> BYN</p>
-                <button className="card__add">
+                <button className="card__add" onClick={() => addToCart({id, name, description, img, price})}>
                     в корзину
                 </button>
             </div>

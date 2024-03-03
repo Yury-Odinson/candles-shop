@@ -1,5 +1,4 @@
-// URL for candles data:
-
+// URL for candles data
 const dataURL = "https://63fb14da2027a45d8d5fb8bf.mockapi.io/candles";
 
 // links iin the header
@@ -10,6 +9,7 @@ export const links = {
     reviews: "Отзывы"
 };
 
+// load data from mock
 export const getData = async () => {
     try {
         const response = await fetch(dataURL);

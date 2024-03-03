@@ -26,7 +26,6 @@ a.active {
   margin: 0 auto;
   max-width: 1440px;
   position: relative;
-  //background-color: #c7c7c7;
 }
 
 .header {
@@ -48,17 +47,42 @@ a.active {
       display: flex;
       gap: 20px;
       align-items: center;
-
     }
 
     &__link {
       padding: 5px 10px;
     }
-
   }
 
   &-basket {
-    padding-left: 40px;
+    position: relative;
+    margin-left: 40px;
+    padding: 5px 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    background-color: $button;
+    border-radius: 30px;
+
+    &-counter {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-10px, -50%);
+      padding: 5px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $hoverButton;
+      border-radius: 50%;
+
+      & > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 
   ul {
@@ -130,7 +154,6 @@ a.active {
     border-radius: 27px;
     background-color: $button;
   }
-
 }
 
 .card > * {

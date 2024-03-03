@@ -7,6 +7,7 @@ import {About} from "./components/About";
 import {Contacts} from "./pages/Contacts";
 import {Reviews} from "./pages/Reviews";
 import {ScrollToTop} from "./components/ScrollToTop";
+import {Cart} from "./pages/Cart";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                         <Route path="/about" element={<About/>}/>
                         <Route path="/contacts" element={<Contacts/>}/>
                         <Route path="/reviews" element={<Reviews/>}/>
+                        <Route path="/cart" element={<Cart/>}/>
                     </Routes>
                     {visibleJumper && <ScrollToTop/>}
                 </div>

@@ -4,16 +4,14 @@
 
 .card:hover {
   background-color: $hoverCard;
-  transition: 0.2s;
 }
 
-.card__add:hover {
+.card__add:hover,
+.header-basket:hover{
   background-color: $hoverButton;
-  transition: 0.2s;
 }
 
 .scrollToTop:hover {
   opacity: 1;
   height: 100px;
-  transition: 0.2s;
 }

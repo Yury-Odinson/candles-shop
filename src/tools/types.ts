@@ -1,4 +1,4 @@
-export type CandlesCartProps = {
+export type Candle = {
     id: string,
     name: string,
     description: string,
