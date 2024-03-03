@@ -2,7 +2,6 @@ import {CandlesCartProps} from "../tools/types";
 
 export const CandlesCart = ({name, description, img, price,  id}: CandlesCartProps) => {
 
-    console.log(price)
     return (
         <div className="card">
             <img className="card__image" src={img} alt="candles" />

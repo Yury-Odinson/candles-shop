@@ -25,6 +25,7 @@ a.active {
 .wrapper {
   margin: 0 auto;
   max-width: 1440px;
+  position: relative;
   //background-color: #c7c7c7;
 }
 
@@ -134,4 +135,19 @@ a.active {
 
 .card > * {
   cursor: default;
+}
+
+.scrollToTop {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.4;
+  background-color: $button;
+  background-image: url("../assets/img/scroll-to-top.png");
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }

@@ -1,15 +1,19 @@
-.card,
-.card__add {
+* {
   transition: 0.2s;
 }
 
 .card:hover {
-  //scale: 1.015;
   background-color: $hoverCard;
   transition: 0.2s;
 }
 
 .card__add:hover {
   background-color: $hoverButton;
+  transition: 0.2s;
+}
+
+.scrollToTop:hover {
+  opacity: 1;
+  height: 100px;
   transition: 0.2s;
 }
