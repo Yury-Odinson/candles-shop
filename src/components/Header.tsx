@@ -1,17 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import {links} from "../tools/utils";
 import headerLogo from "../assets/img/headerLogo.png";
-import {getCartItems, itemsInCart} from "../tools/store";
+import {itemsInCart} from "../tools/store";
 
 export const Header = () => {
 
-    const [candles, setCandles] = useState<number>(itemsInCart.length);
-
-    useEffect(() => {
-        const data = getCartItems();
-        setCandles(data.length);
-    }, [candles]);
+    const candles = itemsInCart.length;
 
     const count = () => {
         if (candles <= 0) return " ";
@@ -19,7 +14,14 @@ export const Header = () => {
         return candles;
     };
 
-    console.log("render");
+    const basketCounter = () => {
+        if (candles === 0) return;
+        return (
+            <div className="header-basket-counter">
+                <span>{count()}</span>
+            </div>
+        );
+    };
 
     const renderLinks = (obj: any) => {
         return Object.keys(obj).map((key) => (
@@ -58,9 +60,7 @@ export const Header = () => {
                                 <circle cx="18" cy="20.5" r="1"/>
                                 <path d="M2.5 2.5h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6l1.6-8.4H7.1"/>
                             </svg>
-                            <div className="header-basket-counter">
-                                <span>{count()}</span>
-                            </div>
+                            {basketCounter()}
                         </div>
                     </Link>
 
