@@ -1,7 +1,7 @@
-export default function Home() {
+export default function Page() {
     return (
         <div className="wrapper">
-            <p>home page</p>
+            <p>basket page</p>
         </div>
     );
 };
