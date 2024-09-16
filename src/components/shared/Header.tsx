@@ -15,7 +15,7 @@ export const Header: React.FC<Props> = ({className}) => {
     return (
         <header className={cn("border-b", [className])}>
 
-            <nav className="mx-auto py-2 flex items-center justify-between max-w-[1440px]">
+            <nav className="mx-auto py-2 px-4 flex items-center justify-between max-w-[1440px]">
                 <Link href="/">
                     <div className="flex items-center gap-2">
                         <Image
