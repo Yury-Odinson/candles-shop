@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeaderLogoImg from "/src/assets/images/headerLogo.png";
 
 import "../app/globals.css";
+import {Button} from "@/components/ui/button";
 
 export const Header = () => {
     return (
@@ -24,6 +25,9 @@ export const Header = () => {
 
                         <Link href="basket">
                             <li className="relative flex items-center gap-4 p-1 pl-3 pr-3 bg-sky-100 rounded-3xl">
+
+                                <Button variant="outline">Корзина</Button>
+
                                 <p className="m-1 pr-2 border-sky-200 border-r-2"> 13 руб.</p>
                                 <div className="basket__counter absolute top-0 right-3 bg-blue-900 w-5 h-5 rounded-3xl">
                                     <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2
