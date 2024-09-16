@@ -17,12 +17,21 @@ export const Header: React.FC<Props> = ({className}) => {
 
             <nav className="mx-auto py-2 flex items-center justify-between max-w-[1440px]">
                 <Link href="/">
-                    <Image
-                        src={HeaderLogoImg}
-                        alt="logo"
-                        width={200}
-                        height={40}
-                    />
+                    <div className="flex items-center gap-2">
+                        <Image
+                            src={HeaderLogoImg}
+                            alt="logo"
+                            width={70}
+                            height={70}
+                        />
+                        <div className="leading-4 font-bold">
+                            <h1 className="text-4xl uppercase">Свечи </h1>
+                            <h2 className="">ручной работы</h2>
+
+                        </div>
+                    </div>
+
+
                 </Link>
 
                 <Link href="basket">
