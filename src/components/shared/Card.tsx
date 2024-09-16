@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CandleImageMock from "../assets/images/candleMock.jpg"
+import CandleImageMock from "../../assets/images/candleMock.jpg"
 
 export const Card = () => {
     return (
