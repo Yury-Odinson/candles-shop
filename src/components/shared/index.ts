@@ -1,3 +1,3 @@
-export {Header} from  "./Header";
-export {Card} from  "./Card";
-export {TopBar} from "./TopBar"
+export {Header} from "./header";
+export {Card} from "./card";
+export {TopBar} from "./top-bar"
