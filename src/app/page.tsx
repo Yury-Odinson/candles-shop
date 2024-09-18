@@ -1,10 +1,8 @@
-import {ProductsGroup, TopBar} from "@/components/shared";
+import {ProductsGroup} from "@/components/shared";
 
 export default function Home() {
     return (
         <div className="mx-auto py-5 px-4 max-w-[1440px]">
-
-            <TopBar/>
 
             <ProductsGroup title={"Свечи"} items={[
                 {
@@ -83,8 +81,7 @@ export default function Home() {
                 }
             ]} categoryId={2}
             />
-
-
+            
 
             {/*<CarouselTpl/>*/}
 

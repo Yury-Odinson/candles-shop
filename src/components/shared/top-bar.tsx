@@ -18,7 +18,7 @@ const categories: object[] = [
 export const TopBar: React.FC<Props> = ({className}) => {
     const categoryActiveId = useCategoryStore((state) => state.activeId);
     return (
-        <div className={cn("sticky top-0 flex gap-6 bg-gray-50 px-0 py-2 rounded-2xl text-2xl", [className])}>
+        <div className={cn("inline-flex gap-6 text-2xl", [className])}>
             {
                 categories.map(({id, name}, index) => (
                     <a className={cn("py-2 px-4 flex items-center  hover:text-muted-foreground transition ",
