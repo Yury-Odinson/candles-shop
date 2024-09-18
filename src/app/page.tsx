@@ -81,7 +81,7 @@ export default function Home() {
                     price: "634679",
                     id: "10",
                 }
-            ]} categoryId={1}
+            ]} categoryId={2}
             />
 
 
