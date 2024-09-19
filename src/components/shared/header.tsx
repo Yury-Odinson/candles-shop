@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import HeaderLogoImg from "/src/assets/images/header-logo.png";
@@ -7,12 +9,16 @@ import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui";
 import {ArrowRight, ShoppingCart} from "lucide-react";
 import {TopBar} from "@/components/shared/top-bar";
+import {usePathname} from "next/navigation";
 
 interface Props {
     className?: string;
 }
 
 export const Header: React.FC<Props> = ({className}) => {
+
+    const path = usePathname();
+
     return (
         <header className={cn("sticky top-0 border-b bg-white opacity-90 " +
             "hover:opacity-100 transition", [className])}>
@@ -33,7 +39,7 @@ export const Header: React.FC<Props> = ({className}) => {
                         </div>
                     </Link>
 
-                    <TopBar/>
+                    <TopBar className={path !== "/" ? "hidden" : ""}/>
 
                     <Link href="basket">
                         <Button variant="default" className="group relative">
