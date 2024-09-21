@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import HeaderLogoImg from "/src/assets/images/header-logo.png";
-import "../../app/globals.css";
+import "../../../app/globals.css";
 import React from "react";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui";
