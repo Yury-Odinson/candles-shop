@@ -24,7 +24,6 @@ export const TopBar: React.FC<Props> = ({className}) => {
                     <a className={cn("py-2 px-4 flex items-center  hover:text-muted-foreground transition ",
                         categoryActiveId === id && "rounded-2xl border-1 text-primary hover:text-primary"
                     )} key={index}>
-
                         <button>{name}</button>
                     </a>
                 ))
