@@ -7,9 +7,10 @@ import "../../../app/globals.css";
 import React from "react";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui";
-import {ArrowRight, Search, ShoppingCart} from "lucide-react";
+import {ArrowRight, ShoppingCart} from "lucide-react";
 import {TopBar} from "@/components/shared/top-bar";
 import {usePathname} from "next/navigation";
+import {SearchInput} from "@/components/shared/search-input";
 
 interface Props {
     className?: string;
@@ -23,7 +24,7 @@ export const Header: React.FC<Props> = ({className}) => {
         <header className={cn("sticky top-0 border-b bg-white opacity-90 " +
             "hover:opacity-100 transition", [className])}>
             <div className="mx-auto max-w-[1440px]">
-                <nav className="py-2 px-4 flex items-center justify-between">
+                <nav className="py-2 px-4 flex items-center gap-6">
                     <Link href="/">
                         <div className="flex items-center gap-2">
                             <Image
@@ -39,10 +40,7 @@ export const Header: React.FC<Props> = ({className}) => {
                         </div>
                     </Link>
 
-                    <label className="px-2 flex items-center bg-gray-100 w-1/2 h-10 rounded-2xl">
-                        <Search className="opacity-50"/>
-                        <input type="text" placeholder="Найти" className="p-2 bg-inherit w-full h-full text-2xl"/>
-                    </label>
+                    <SearchInput/>
 
                     <Link href="basket">
                         <Button variant="default" className="group relative">
