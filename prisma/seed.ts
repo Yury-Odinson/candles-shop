@@ -2,6 +2,19 @@ import {prisma} from "./prisma-client";
 import {hashSync} from "bcrypt";
 import {categories, products} from "./constants";
 
+
+const randomDecimalNumber = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10;
+};
+
+const generateProductItem = ({productId}: { productId: number }) => {
+    return {
+        productId,
+        price: randomDecimalNumber(190, 600),
+    }
+};
+
+
 async function up() {
     await prisma.user.createMany({
         data: [
@@ -34,6 +47,7 @@ async function up() {
         data: {
             name: "Свеча 1",
             imageUrl: "https://sun9-27.userapi.com/impg/5tA2qS-QDLm4S3vEFhdz4p2B1sJZFKkV5W2x9Q/393J5pjEIv8.jpg?size=1000x1021&quality=95&sign=1a666539f54a9b8015c6d10dc3bbad9c&type=album",
+            description: "Описание 1",
             categoryId: 1
         }
     });
@@ -42,6 +56,7 @@ async function up() {
         data: {
             name: "Свеча 2",
             imageUrl: "https://sun9-80.userapi.com/impg/ymLcM9H7ww3cAC4cgOlkt3Y8zdE_o4hYHj__nA/GhHlJ3kIKow.jpg?size=962x991&quality=95&sign=d555de9c8e653e7321d23ad9dcaace96&type=album",
+            description: "Описание 2",
             categoryId: 1
         }
     });
@@ -50,25 +65,38 @@ async function up() {
         data: {
             name: "Свеча 3",
             imageUrl: "https://sun9-10.userapi.com/impg/CsQ_EPTfp79RhoAHhSNg0SgG4CD3NCwwguxnmQ/KIfOeeSGFfs.jpg?size=1024x1024&quality=95&sign=194a392c4a9e661e3e6576d89914ce4a&type=album",
+            description: "Описание 3",
             categoryId: 1
         }
     });
 
     await prisma.productItem.createMany({
+
         data: [
-            {
-                productId: candles1.id,
-                price: 300
-            },
-            {
-                productId: candles2.id,
-                price: 431
-            },
-            {
-                productId: candles3.id,
-                price: 353
-            }
+            generateProductItem({productId: candles1.id}),
+            generateProductItem({productId: candles2.id}),
+            generateProductItem({productId: candles3.id}),
+
+            generateProductItem({productId: 1}),
+            generateProductItem({productId: 2}),
+            generateProductItem({productId: 3}),
+            generateProductItem({productId: 4}),
+            generateProductItem({productId: 5}),
         ]
+        // data: [
+        //     {
+        //         productId: candles1.id,
+        //         price: 300
+        //     },
+        //     {
+        //         productId: candles2.id,
+        //         price: 431
+        //     },
+        //     {
+        //         productId: candles3.id,
+        //         price: 353
+        //     }
+        // ]
     })
 
     await prisma.cart.createMany({

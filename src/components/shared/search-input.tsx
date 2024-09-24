@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import {cn} from "@/lib/utils";
 import {Search} from "lucide-react";
-import {useClickAway} from "react-use";
+import {useClickAway, useDebounce} from "react-use";
 import Link from "next/link";
 import {Api} from "../../../services/api-client";
 import {Product} from "@prisma/client";
@@ -24,11 +24,18 @@ export const SearchInput: React.FC<Props> = ({className}) => {
         setFocused(false);
     });
 
-    React.useEffect(() => {
+    useDebounce(() => {
         Api.products.search(searchQuery)
             .then(items => setProducts(items));
 
-    }, [searchQuery]);
+    }, 300, [searchQuery]);
+
+    const handleClickItem = () => {
+        setSearchQuery("");
+        setFocused(false);
+        setProducts([]);
+
+    }
 
     return (
         <>
@@ -58,7 +65,9 @@ export const SearchInput: React.FC<Props> = ({className}) => {
                                 <Link
                                     key={product.id}
                                     href={`/product/${product.id}`}
-                                    className="flex mx-2 items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition">
+                                    className="flex mx-2 items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition"
+                                    onClick={handleClickItem}
+                                >
                                     <img
                                         src={product.imageUrl}
                                         alt={product.name}
