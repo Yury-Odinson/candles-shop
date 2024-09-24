@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import {cn} from "@/lib/utils";
 import {Search} from "lucide-react";
 import {useClickAway} from "react-use";
 import Link from "next/link";
-import Image from "next/image";
+import {Api} from "../../../services/api-client";
+import {Product} from "@prisma/client";
 
 interface Props {
     className?: string;
@@ -13,12 +14,21 @@ interface Props {
 
 export const SearchInput: React.FC<Props> = ({className}) => {
 
+    const [searchQuery, setSearchQuery] = React.useState("");
     const [focused, setFocused] = React.useState<boolean>(false);
+    const [products, setProducts] = useState<Product[]>([]);
+
     const ref = React.useRef(null);
 
     useClickAway(ref, () => {
         setFocused(false);
-    })
+    });
+
+    React.useEffect(() => {
+        Api.products.search(searchQuery)
+            .then(items => setProducts(items));
+
+    }, [searchQuery]);
 
     return (
         <>
@@ -32,44 +42,35 @@ export const SearchInput: React.FC<Props> = ({className}) => {
                     placeholder="Найти"
                     className="mr-4 bg-inherit outline-none w-full h-full text-2xl"
                     onFocus={() => setFocused(true)}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                 />
 
-                <div className={cn("absolute p-4 w-full bg-white rounded-2xl top-20 shadow-md transition-all " +
-                    "duration-200 invisible opacity-0 z-30 ", focused && "visible opacity-100 top-16"
-                )}>
+                <div
+                    className={cn("absolute w-full bg-white " +
+                        "rounded-2xl top-20 shadow-md transition-all duration-200 invisible opacity-0 z-30 ",
+                        focused && "visible opacity-100 top-16"
+                    )}>
 
-                    <Link href="/product1"
-                          className="flex items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition">
-                        <img
-                            src="https://sun9-27.userapi.com/impg/5tA2qS-QDLm4S3vEFhdz4p2B1sJZFKkV5W2x9Q/393J5pjEIv8.jpg?size=1000x1021&quality=95&sign=1a666539f54a9b8015c6d10dc3bbad9c&type=album"
-                            alt="some alt"
-                            width={44} height={44}
-                            className="p-1 rounded-2xl"
-                        />
-                        <span>Свеча 1</span>
-                    </Link>
+                    <div className="flex flex-col gap-2 my-2 max-h-[50vh] overflow-y-scroll empty:hidden">
+                        {
+                            products.map(product => (
+                                <Link
+                                    key={product.id}
+                                    href={`/product/${product.id}`}
+                                    className="flex mx-2 items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition">
+                                    <img
+                                        src={product.imageUrl}
+                                        alt={product.name}
+                                        width={44} height={44}
+                                        className="p-1 rounded-2xl"
+                                    />
+                                    <span>{product.name}</span>
+                                </Link>
+                            ))
+                        }
 
-                    <Link href="/product2"
-                          className="flex items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition">
-                        <img
-                            src="https://sun9-27.userapi.com/impg/5tA2qS-QDLm4S3vEFhdz4p2B1sJZFKkV5W2x9Q/393J5pjEIv8.jpg?size=1000x1021&quality=95&sign=1a666539f54a9b8015c6d10dc3bbad9c&type=album"
-                            alt="some alt"
-                            width={44} height={44}
-                            className="p-1 rounded-2xl"
-                        />
-                        <span>Свеча 2</span>
-                    </Link>
-
-                    <Link href="/product3"
-                          className="flex items-center gap-4 text-lg hover:bg-secondary rounded-2xl transition">
-                        <img
-                            src="https://sun9-27.userapi.com/impg/5tA2qS-QDLm4S3vEFhdz4p2B1sJZFKkV5W2x9Q/393J5pjEIv8.jpg?size=1000x1021&quality=95&sign=1a666539f54a9b8015c6d10dc3bbad9c&type=album"
-                            alt="some alt"
-                            width={44} height={44}
-                            className="p-1 rounded-2xl"
-                        />
-                        <span>Свеча 3</span>
-                    </Link>
+                    </div>
 
                 </div>
 
