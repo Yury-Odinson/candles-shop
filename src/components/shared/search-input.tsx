@@ -42,7 +42,7 @@ export const SearchInput: React.FC<Props> = ({className}) => {
             {focused && <div className="fixed top-0 left-0 bottom-0 right-0 bg-black/50 z-30"/>}
 
             <label ref={ref}
-                   className={cn("relative flex flex-1  items-center bg-gray-100 h-10 rounded-2xl z-30", [className])}>
+                   className={cn("relative flex flex-1  items-center bg-secondary h-10 rounded-2xl z-30", [className])}>
                 <Search className="mx-2 opacity-50"/>
                 <input
                     type="text"

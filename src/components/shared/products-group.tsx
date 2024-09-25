@@ -26,7 +26,7 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
     const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
     const intersectionRef = React.useRef(null);
     const intersection = useIntersection(intersectionRef, {
-        threshold: 0.4
+        threshold: 0.5
     });
 
     React.useEffect(() => {
@@ -36,8 +36,8 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
     }, [categoryId, intersection?.isIntersecting, title]);
 
     return (
-        <div className="section__item">
-            <h3 className="py-2 w-full text-primary text-2xl text-center ">{title}</h3>
+        <div className="section__item py-10">
+            <h3 className="pb-2 w-full text-primary text-2xl text-center ">{title}</h3>
             <section className={cn("mx-auto p-4 max-w-[1440px] grid grid-cols-4 gap-5", [className])} key={categoryId}
                      id={title} ref={intersectionRef}>
 

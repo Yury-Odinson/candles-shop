@@ -21,7 +21,7 @@ export const Header: React.FC<Props> = ({className}) => {
     const path = usePathname();
 
     return (
-        <header className={cn("sticky top-0 border-b bg-white opacity-90 " +
+        <header className={cn("sticky top-0 bg-gradient-to-b from-gray-200 to-white/80 bg-white" +
             "hover:opacity-100 transition", [className])}>
             <div className="mx-auto max-w-[1440px]">
                 <nav className="py-2 px-4 flex items-center gap-6">
@@ -55,7 +55,9 @@ export const Header: React.FC<Props> = ({className}) => {
                         </Button>
                     </Link>
                 </nav>
+
                 <TopBar className={path !== "/" ? "hidden" : ""}/>
+
             </div>
         </header>
     );
