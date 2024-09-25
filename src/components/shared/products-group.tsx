@@ -35,15 +35,13 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
         }
     }, [categoryId, intersection?.isIntersecting, title]);
 
-
-    console.log(items);
-
     return (
-        <>
-            <h3 className=" my-2 p-2 text-primary text-2xl text-center">{title}</h3>
-            <section className={cn("grid grid-cols-4 gap-5", [className])} key={categoryId} id={title} ref={intersectionRef}>
+        <div className="section__item">
+            <h3 className="py-2 w-full text-primary text-2xl text-center ">{title}</h3>
+            <section className={cn("mx-auto p-4 max-w-[1440px] grid grid-cols-4 gap-5", [className])} key={categoryId}
+                     id={title} ref={intersectionRef}>
 
-                {items?.map((product:Item, index: string) => (
+                {items?.map((product: Item, index: string) => (
                     <Card name={product.name}
                           description={product.description}
                           imageURL={product.imageUrl}
@@ -54,6 +52,6 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
                 ))}
 
             </section>
-        </>
+        </div>
     );
 };

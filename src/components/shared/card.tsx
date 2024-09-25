@@ -11,16 +11,12 @@ interface Props {
 }
 
 export const Card: React.FC<Props> = ({name, description, imageURL, id, price}) => {
-
-    // console.log(name)
     return (
         <article className="flex flex-col justify-between bg-secondary rounded-2xl" id={`card_${id}`}>
 
-            <span>{price}</span>
-
             <div>
                 <p className="p-4 text-2xl font-bold">{name}</p>
-                <img src={imageURL} alt={name} />
+                <img src={imageURL} alt={name}/>
                 <p className="mt-2 p-2 text-justify">{description}</p>
             </div>
 

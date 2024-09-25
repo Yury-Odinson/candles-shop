@@ -10,7 +10,7 @@ export default async function Home() {
     });
 
     return (
-        <div className="mx-auto py-5 px-4 max-w-[1440px]">
+        <div className="my-5">
 
             {
                 categories.map(category => (
