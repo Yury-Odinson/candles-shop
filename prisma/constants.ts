@@ -78,14 +78,14 @@ export const products = [
         categoryId: 2
     },
     {
-        name: "Случайный набор из 3 свечей",
+        name: "Премиум набор № 1",
         imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
         description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga",
         price: 42,
         categoryId: 2
     },
     {
-        name: "Случайный набор из 5 свечей",
+        name: "Премиум набор № 2",
         imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
         description: "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam",
         price: 57,
@@ -111,5 +111,49 @@ export const products = [
         description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
         price: 135,
         categoryId: 3
+    },
+    {
+        name: "Чаша керамическая",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 5,
+        categoryId: 4
+    },
+    {
+        name: "Чаша стеклянная",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 3,
+        categoryId: 4
+    },
+    {
+        name: "Воск",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 5,
+        categoryId: 4
+    },
+    {
+        name: "Фитиль деревянный",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 5,
+        categoryId: 4
+    }
+    ,
+    {
+        name: "Фитиль хлопковый",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 5,
+        categoryId: 4
+    }
+    ,
+    {
+        name: "Ароматизатор",
+        imageUrl: "https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album",
+        description: " In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.",
+        price: 5,
+        categoryId: 4
     }
 ];

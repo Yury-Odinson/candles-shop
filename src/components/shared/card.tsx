@@ -17,7 +17,7 @@ export const Card: React.FC<Props> = ({name, description, imageURL, id, price}) 
             <div>
                 <p className="p-4 text-2xl font-bold">{name}</p>
                 <img src={imageURL} alt={name}/>
-                <p className="mt-2 p-2 text-justify">{description}</p>
+                <p className="mt-2 p-2 text-justify indent-5">{description}</p>
             </div>
 
             <div className="flex mt-5 justify-between">
