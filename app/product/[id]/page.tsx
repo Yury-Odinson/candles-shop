@@ -26,8 +26,9 @@ export default async function ProductPage({params: {id}}) {
             <section>
                 <article className="mx-auto p-4 flex flex-wrap gap-6 max-w-[1440px]">
 
-                    <div className="flex flex-1 min-w-[300px]">
-                        <img className="object-contain rounded-2xl" src={product.imageUrl} alt={product.name}/>
+                    <div className="flex flex-1 items-center justify-center min-w-[300px]">
+                        <img className="object-contain rounded-2xl max-h-[400px]" src={product.imageUrl}
+                             alt={product.name}/>
                     </div>
 
                     <div className="flex flex-1 min-w-[300px] flex-col gap-2">
@@ -49,17 +50,21 @@ export default async function ProductPage({params: {id}}) {
 
             <p className="mx-auto p-4 max-w-[1440px] text-xl">Смотрите также</p>
 
-            <section className="p-4 flex gap-5 justify-center">
-                {recommended.map(product => (
-                    <Recommended
-                        name={product.name}
-                        description={product.description}
-                        imageUrl={product.imageUrl}
-                        id={product.id}
-                        price={product.price}
-                        key={product.id}
-                    />
-                ))}
+            <section className="bg-gray-50 ">
+                <div className="mx-auto py-4 px-10 flex gap-6 max-w-[1440px] overflow-scroll snap-none">
+                    {recommended
+                        .filter(product => product.id !== Number(id))
+                        .map(product => (
+                            <Recommended
+                                name={product.name}
+                                description={product.description}
+                                imageUrl={product.imageUrl}
+                                id={product.id}
+                                price={product.price}
+                                key={product.id}
+                            />
+                        ))}
+                </div>
             </section>
 
         </>

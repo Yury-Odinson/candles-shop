@@ -15,13 +15,11 @@ export const Recommended: React.FC<Props> = ({name, imageUrl, id, price}) => {
 
     return (
         <Link href={"/product/" + id}>
-
             <article className="p-2 flex flex-col gap-2 max-w-[200px] shadow-2xl rounded-2xl">
                 <span className="text-xs">{name}</span>
-                <img src={imageUrl} alt={name} width={180} height={180}/>
+                <img className="max-w-[180px] max-h-[180px]" src={imageUrl} alt={name} width={180} height={180}/>
                 <span className="ml-auto">{price} р.</span>
             </article>
-
         </Link>
     );
 };
