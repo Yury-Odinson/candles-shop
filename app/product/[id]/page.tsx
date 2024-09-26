@@ -3,6 +3,7 @@ import {notFound} from "next/navigation";
 import {CirclePlus} from "lucide-react";
 import {Button} from "@/components/ui";
 import React from "react";
+import {Recommended} from "@/components/shared";
 
 export default async function ProductPage({params: {id}}) {
 
@@ -14,13 +15,19 @@ export default async function ProductPage({params: {id}}) {
         return notFound();
     }
 
+    const recommended = await prisma.product.findMany({
+        where: {
+            categoryId: product.categoryId
+        }
+    });
+
     return (
         <>
             <section>
                 <article className="mx-auto p-4 flex flex-wrap gap-6 max-w-[1440px]">
 
                     <div className="flex flex-1 min-w-[300px]">
-                        <img className="object-contain" src={product.imageUrl} alt={product.name}/>
+                        <img className="object-contain rounded-2xl" src={product.imageUrl} alt={product.name}/>
                     </div>
 
                     <div className="flex flex-1 min-w-[300px] flex-col gap-2">
@@ -29,7 +36,8 @@ export default async function ProductPage({params: {id}}) {
 
                         <div className="flex items-center justify-end gap-6 ">
                             <span className="ml-auto text-2xl font-bold">{product.price} руб.</span>
-                            <Button variant="default">
+                            <Button variant="default" className="flex gap-2">
+                                <span>Добавить в корзину</span>
                                 <CirclePlus/>
                             </Button>
                         </div>
@@ -38,6 +46,22 @@ export default async function ProductPage({params: {id}}) {
                 </article>
 
             </section>
+
+            <p className="mx-auto p-4 max-w-[1440px] text-xl">Смотрите также</p>
+
+            <section className="p-4 flex gap-5 justify-center">
+                {recommended.map(product => (
+                    <Recommended
+                        name={product.name}
+                        description={product.description}
+                        imageUrl={product.imageUrl}
+                        id={product.id}
+                        price={product.price}
+                        key={product.id}
+                    />
+                ))}
+            </section>
+
         </>
     );
 };
