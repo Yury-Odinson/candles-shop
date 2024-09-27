@@ -5,3 +5,4 @@ export {ProductsGroup} from "./products-group";
 export {CarouselTpl} from "./carousel-tpl";
 export {SearchInput} from "./search-input";
 export {Recommended} from "./recommended";
+export {SkeletonRekommended} from "./skeleton-recommended";

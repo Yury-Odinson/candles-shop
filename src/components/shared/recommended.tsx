@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import {SkeletonRecommended} from "@/components/shared/skeleton-recommended";
 
 interface Props {
     name: string,
@@ -13,13 +14,29 @@ interface Props {
 
 export const Recommended: React.FC<Props> = ({name, imageUrl, id, price}) => {
 
-    return (
-        <Link href={"/product/" + id}>
-            <article className="p-2 flex flex-col gap-2 max-w-[200px] shadow-2xl rounded-2xl">
-                <span className="text-xs">{name}</span>
-                <img className="max-w-[180px] max-h-[180px]" src={imageUrl} alt={name} width={180} height={180}/>
-                <span className="ml-auto">{price} р.</span>
-            </article>
-        </Link>
-    );
+    const [url, setUrl] = React.useState<string>("");
+
+    React.useEffect(() => {
+        fetch(imageUrl)
+            .then(response => response.blob())
+            .then((image) => {
+                setUrl(URL.createObjectURL(image));
+            });
+    });
+
+    if (!url) {
+        return <SkeletonRecommended/>
+    } else {
+        return (
+            <Link href={"/product/" + id}>
+                <article
+                    className="p-2 flex flex-col justify-between min-w-[200px] w-[15vw] h-[35vh] shadow-2xl rounded-2xl">
+                    <span className="text-xs">{name}</span>
+                    <img className="min-w-[180px] w-[14vw] h-[25vh]" src={url} alt={name} width={180} height={180}/>
+                    <span className="ml-auto">{price} р.</span>
+                </article>
+            </Link>
+        );
+    }
+
 };
