@@ -6,17 +6,17 @@ import {cn} from "@/lib/utils";
 import {Card} from "@/components/shared/card";
 import {useCategoryStore} from "@/store/category";
 
-interface Items {
+interface Item {
     name: string,
     description: string,
-    imageURL: string,
+    imageUrl: string,
     id: string,
     price: string
 }
 
 interface Props {
     title: string,
-    items: Items[],
+    items: any,
     categoryId: number,
     className?: string
 }
@@ -26,7 +26,7 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
     const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
     const intersectionRef = React.useRef(null);
     const intersection = useIntersection(intersectionRef, {
-        threshold: 0.4
+        threshold: 0.5
     });
 
     React.useEffect(() => {
@@ -36,14 +36,15 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
     }, [categoryId, intersection?.isIntersecting, title]);
 
     return (
-        <>
-            <h3 className=" my-2 p-2 text-primary text-2xl text-center">{title}</h3>
-            <section className={cn("grid grid-cols-4 gap-5", [className])} key={categoryId} id={title} ref={intersectionRef}>
+        <div className="section__item py-10">
+            <h3 className="pb-2 w-full text-primary text-2xl text-center ">{title}</h3>
+            <section className={cn("mx-auto p-4 max-w-[1440px] grid grid-cols-4 gap-5", [className])} key={categoryId}
+                     id={title} ref={intersectionRef}>
 
-                {items?.map((product, index) => (
+                {items?.map((product: Item, index: string) => (
                     <Card name={product.name}
                           description={product.description}
-                          imageURL={product.imageURL}
+                          imageURL={product.imageUrl}
                           id={product.id}
                           price={product.price}
                           key={index}
@@ -51,6 +52,6 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
                 ))}
 
             </section>
-        </>
+        </div>
     );
 };

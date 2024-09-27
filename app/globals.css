@@ -92,3 +92,25 @@ html {
 #nprogress .spinner-icon {
     @apply border-t-primary border-l-primary !important;
 }
+
+.section__item:nth-child(even) {
+    background-color: rgb(249 250 251);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+    width: 50px;
+    background-color: lime;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dbdadd;
+    border-radius: 50px;
+    transition: 0.25s;
+}
