@@ -43,7 +43,7 @@ export const Header: React.FC<Props> = ({className}) => {
 
                         <SearchInput/>
 
-                        <Link href="basket">
+                        <Link href="/basket">
                             <Button variant="default" className="group relative">
                                 <b>777 р.</b>
                                 <span className="h-full w-[1px] bg-white/30 mx-3"/>
