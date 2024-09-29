@@ -30,9 +30,15 @@ export const Recommended: React.FC<Props> = ({name, imageUrl, id, price}) => {
         return (
             <Link href={"/product/" + id}>
                 <article
-                    className="p-2 flex flex-col justify-between min-w-[200px] w-[15vw] h-[35vh] shadow-2xl rounded-2xl">
-                    <span className="text-xs">{name}</span>
-                    <img className="min-w-[180px] w-[14vw] h-[25vh]" src={url} alt={name} width={180} height={180}/>
+                    className="mx-auto w-[90vw] h-[60vh] sm:w-[5vw] sm:h-[25vh] p-4 flex flex-1 flex-col gap-6
+                    justify-between min-w-[250px] min-h-[350px] shadow-2xl rounded-2xl text-xl">
+                    <span>{name}</span>
+                    <img className="min-w-[180px] min-h-[180px] w-full h-full"
+                         src={url}
+                         alt={name}
+                         width={180}
+                         height={180}
+                    />
                     <span className="ml-auto">{price} р.</span>
                 </article>
             </Link>

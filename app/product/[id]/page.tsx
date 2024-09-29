@@ -50,7 +50,10 @@ export default async function ProductPage({params: {id}}) {
 
             <p className="mx-auto p-4 max-w-[1440px] text-xl">Смотрите также</p>
 
-            <section className="mx-auto py-4 px-10 flex gap-6 max-w-[1440px] overflow-scroll snap-none">
+            <section
+                className="flex flex-col mx-auto py-10 px-4 sm:grid grid-cols-[repeat(auto-fill,250px)]
+                justify-around gap-6 max-w-[1440px]"
+            >
                 {recommended
                     .filter(product => product.id !== Number(id))
                     .map(product => (

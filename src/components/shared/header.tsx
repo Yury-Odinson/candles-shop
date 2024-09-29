@@ -35,8 +35,10 @@ export const Header: React.FC<Props> = ({className}) => {
                                     height={70}
                                 />
                                 <div className="leading-4 font-bold">
-                                    <h1 className="text-4xl uppercase">Свечи </h1>
-                                    <h2 className="">ручной работы</h2>
+                                    <div className="hidden sm:block">
+                                        <h1 className="text-4xl uppercase">Свечи </h1>
+                                        <h2 className="">ручной работы</h2>
+                                    </div>
                                 </div>
                             </div>
                         </Link>
@@ -45,14 +47,14 @@ export const Header: React.FC<Props> = ({className}) => {
 
                         <Link href="/basket">
                             <Button variant="default" className="group relative">
-                                <b>777 р.</b>
-                                <span className="h-full w-[1px] bg-white/30 mx-3"/>
+                                <b className="hidden sm:block">777 р.</b>
+                                <span className="hidden sm:block h-full w-[1px] bg-white/30 mx-3"/>
                                 <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
                                     <ShoppingCart size={16} className="h-4 w-4 relative"/>
                                     <b>3</b>
                                 </div>
-                                <ArrowRight size={20} className="w-5 absolute right-5 transition duration-300 -translate-x-2
-                        opacity-0 group-hover:opacity-100 group-hover:translate-x-0"/>
+                                <ArrowRight size={20} className="w-5 absolute right-5 transition duration-300
+                                -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"/>
                             </Button>
                         </Link>
                     </nav>
