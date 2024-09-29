@@ -13,7 +13,7 @@ interface Props {
 
 export const Card: React.FC<Props> = ({name, description, imageURL, id, price}) => {
     return (
-        <article className="flex flex-col justify-between bg-secondary rounded-2xl" id={`card_${id}`}>
+        <article className="flex flex-col justify-between bg-secondary rounded-2xl min-w-[200px]" id={`card_${id}`}>
 
             <Link href={"/product/" + id}>
                 <div>
