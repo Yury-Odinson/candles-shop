@@ -1,5 +1,5 @@
 import React from "react";
-import {CirclePlus} from "lucide-react";
+import {Plus} from "lucide-react";
 import {Button} from "@/components/ui";
 import Link from "next/link";
 
@@ -26,8 +26,9 @@ export const Card: React.FC<Props> = ({name, description, imageURL, id, price}) 
             <div className="flex mt-5 justify-between">
                 <p className="text-2xl font-bold pl-4">{price} р.</p>
 
-                <Button variant="default">
-                    <CirclePlus/>
+                <Button variant="outline" className="flex gap-2 font-bold">
+                    <Plus/>
+                    <span>Добавить </span>
                 </Button>
 
             </div>

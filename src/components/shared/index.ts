@@ -6,3 +6,5 @@ export {CarouselTpl} from "./carousel-tpl";
 export {SearchInput} from "./search-input";
 export {Recommended} from "./recommended";
 export {SkeletonRecommended} from "./skeleton-recommended";
+export {CartButton} from "./cart-button";
+export {CartDrawer} from "./cart-drawer";
