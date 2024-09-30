@@ -22,11 +22,15 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, 
 
                 <SheetFooter className="-m-6 p-6 bg-white text-2xl">
                     <div className="flex flex-col gap-6 w-full">
-                        <div className="flex justify-between">
-                            <span>Итого:</span>
-                            <span>777 р.</span>
+                        <div className="flex">
+                            <span className="flex flex-1 text-neutral-500">
+                                Итого:
+                                <div
+                                    className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2"/>
+                            </span>
+                            <span className="text-neutral-700 font-bold">777 р.</span>
                         </div>
-                        <Link href="/basket">
+                        <Link href="/cart">
                             <Button className="flex gap-2 py-6 w-full text-xl" size="lg">
                                 <span>Оформить заказ</span>
                                 <ArrowRight size={20} className=""/>
