@@ -19,13 +19,40 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, 
                     <SheetTitle>В корзине 3 товара</SheetTitle>
                 </SheetHeader>
 
-                <CartDrawerItem
-                    id={1}
-                    imageUrl={"https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album"}
-                    name={"asd"}
-                    price={235}
-                    quantity={1}
-                />
+                <div className="my-5 -mx-6 flex flex-1 flex-col gap-2 overflow-y-scroll">
+
+                    <CartDrawerItem
+                        id={1}
+                        imageUrl={"https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album"}
+                        name={"asd"}
+                        price={235}
+                        quantity={1}
+                    />
+
+                    <CartDrawerItem
+                        id={1}
+                        imageUrl={"https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album"}
+                        name={"asd"}
+                        price={235}
+                        quantity={1}
+                    />
+
+                    <CartDrawerItem
+                        id={1}
+                        imageUrl={"https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album"}
+                        name={"asd"}
+                        price={235}
+                        quantity={1}
+                    />
+                    <CartDrawerItem
+                        id={1}
+                        imageUrl={"https://sun9-45.userapi.com/impg/sK-WNF9x0vCIAkKHKArYNZZ6YIWAH3ZXboFuTQ/va6LYrlfo-Q.jpg?size=1140x799&quality=95&sign=e8379d3f9914615786e0e77d5d197c1c&type=album"}
+                        name={"asd"}
+                        price={235}
+                        quantity={1}
+                    />
+
+                </div>
 
                 <SheetFooter className="-m-6 p-6 bg-white text-2xl">
                     <div className="flex flex-col gap-6 w-full">

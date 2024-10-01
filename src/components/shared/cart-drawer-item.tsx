@@ -19,7 +19,7 @@ export const CartDrawerItem: React.FC<Props> = ({
                                                     className
                                                 }) => {
     return (
-        <div className={cn("-mx-6 flex items-center bg-white p-4 gap-6", className)}>
+        <div className={cn("flex items-center bg-white p-4 gap-6", className)}>
             <CartItem.Image src={imageUrl}/>
             <div className="flex flex-col flex-1 gap-2">
                 <CartItem.Info name={name}/>
