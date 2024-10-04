@@ -28,3 +28,8 @@ export interface Cart {
     updateAt: Date;
     items: ItemsCart[];
 }
+
+export interface CreateCartItemValues {
+    productId: number;
+    quantity: number;
+}
