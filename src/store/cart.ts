@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import { Api } from "../../services/api-client";
-import { CartStateItem, getCartItemsDetails } from "@/lib/get-cart-details";
+import {create} from "zustand";
+import {Api} from "../../services/api-client";
+import {CartStateItem, getCartItemsDetails} from "@/lib/get-cart-details";
 
 export interface CartState {
     loading: boolean;
@@ -24,22 +24,35 @@ export const useCartStore = create<CartState>((set, get) => ({
 
     fetchCartItem: async () => {
         try {
-            set({ loading: true, error: false });
-            const data = await Api.cart.fetchCart();
+            set({loading: true, error: false});
+            const data = await Api.cart.getCart();
             set(getCartItemsDetails(data));
             console.log(data);
         } catch (error) {
             console.log(error);
-            set({ error: true });
+            set({error: true});
         } finally {
-            set({ loading: false });
+            set({loading: false});
+        }
+    },
+
+    updateItemQuantity: async (id: number, quantity: number) => {
+        try {
+            set({loading: true, error: false});
+            const data = await Api.cart.updateItemQuantity(id, quantity);
+            set(getCartItemsDetails(data));
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+            set({error: true});
+        } finally {
+            set({loading: false});
         }
     },
 
     removeCartItem: async (id: number) => {
     },
-    updateItemQuantity: async (id: number, quantity: number) => {
-    },
+
     addCartItem: async (values: any) => {
     }
 

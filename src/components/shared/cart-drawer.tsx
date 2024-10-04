@@ -1,26 +1,32 @@
 "use client";
 
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import React from "react";
-import { Button } from "@/components/ui";
-import { ArrowRight } from "lucide-react";
+import {Button} from "@/components/ui";
+import {ArrowRight} from "lucide-react";
 import Link from "next/link";
-import { CartDrawerItem } from "@/components/shared/cart-drawer-item";
-import { useCartStore } from "@/store/cart";
+import {CartDrawerItem} from "@/components/shared/cart-drawer-item";
+import {useCartStore} from "@/store/cart";
 
 interface Props {
     className?: string;
 }
 
-export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({ children, className }) => {
+export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, className}) => {
 
     const items = useCartStore(state => state.items);
     const fetchItems = useCartStore(state => state.fetchCartItem);
     const totalAmount = useCartStore(state => state.totalAmount);
+    const updateQuantity = useCartStore(state => state.updateItemQuantity);
 
     React.useEffect(() => {
         fetchItems();
     }, []);
+
+    const onClickCountButton = (id: number, quantity: number, type: "plus" | "minus") => {
+        const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+        updateQuantity(id, newQuantity);
+    };
 
     return (
         <Sheet>
@@ -28,12 +34,12 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({ children,
             <SheetContent className="flex flex-col justify-between bg-gray-100">
 
                 <SheetHeader>
-                    <SheetTitle>В корзине 3 товара</SheetTitle>
+                    <SheetTitle>В корзине {items.length} товара</SheetTitle>
                 </SheetHeader>
 
                 <div className="my-5 -mx-6 flex flex-1 flex-col gap-2 overflow-y-scroll">
 
-                     {
+                    {
                         items.map((item) => (
                             <CartDrawerItem
                                 id={item.id}
@@ -41,6 +47,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({ children,
                                 name={item.name}
                                 price={item.price}
                                 quantity={item.quantity}
+                                onClickCountButton={(type) => onClickCountButton(item.id, item.quantity, type)}
                                 key={item.id}
                             />
                         ))
@@ -54,14 +61,14 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({ children,
                             <span className="flex flex-1 text-neutral-500">
                                 Итого:
                                 <div
-                                    className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2" />
+                                    className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2"/>
                             </span>
                             <span className="text-neutral-700 font-bold">{totalAmount} р.</span>
                         </div>
                         <Link href="/cart">
                             <Button className="flex gap-2 py-6 w-full text-xl" size="lg">
                                 <span>Оформить заказ</span>
-                                <ArrowRight size={20} className="" />
+                                <ArrowRight size={20} className=""/>
                             </Button>
                         </Link>
                     </div>
