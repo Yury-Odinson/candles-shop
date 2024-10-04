@@ -9,3 +9,6 @@ export const updateItemQuantity = async (itemId: number, quantity: number): Prom
     return (await axiosInstance.patch<Cart>("/cart/" + itemId, {quantity})).data;
 };
 
+export const removeCartItem = async (id: number): Promise<Cart> => {
+    return (await axiosInstance.delete<Cart>("/cart/" + id)).data;
+};
