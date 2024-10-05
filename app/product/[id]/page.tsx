@@ -1,9 +1,7 @@
 import {prisma} from "../../../prisma/prisma-client";
 import {notFound} from "next/navigation";
-import {CirclePlus} from "lucide-react";
-import {Button} from "@/components/ui";
 import React from "react";
-import {Recommended} from "@/components/shared";
+import {ProductItemPage, Recommended} from "@/components/shared";
 
 export default async function ProductPage({params: {id}}) {
 
@@ -15,36 +13,23 @@ export default async function ProductPage({params: {id}}) {
         return notFound();
     }
 
-    const recommended = await prisma.product.findMany({
-        where: {
-            categoryId: product.categoryId
-        }
-    });
+    // const recommended = await prisma.product.findMany({
+    //     where: {
+    //         categoryId: product.categoryId
+    //     }
+    // });
 
     return (
         <>
             <section>
-                <article className="mx-auto p-4 flex flex-wrap gap-6 max-w-[1440px]">
 
-                    <div className="flex flex-1 items-center justify-center min-w-[300px]">
-                        <img className="object-contain rounded-2xl max-h-[400px]" src={product.imageUrl}
-                             alt={product.name}/>
-                    </div>
-
-                    <div className="flex flex-1 min-w-[300px] flex-col gap-2">
-                        <p className="text-2xl font-bold">{product.name}</p>
-                        <p className="flex-1 text-justify indent-5 text-xl">{product.description}</p>
-
-                        <div className="flex items-center justify-end gap-6 ">
-                            <span className="ml-auto text-2xl font-bold">{product.price} руб.</span>
-                            <Button variant="default" className="flex gap-2">
-                                <span>Добавить в корзину</span>
-                                <CirclePlus/>
-                            </Button>
-                        </div>
-
-                    </div>
-                </article>
+                <ProductItemPage
+                    id={product.id}
+                    name={product.name}
+                    imageUrl={product.imageUrl}
+                    description={product.description}
+                    price={product.price}
+                />
 
             </section>
 
@@ -54,18 +39,20 @@ export default async function ProductPage({params: {id}}) {
                 className="flex flex-col mx-auto py-10 px-4 sm:grid grid-cols-[repeat(auto-fill,250px)]
                 justify-around gap-6 max-w-[1440px]"
             >
-                {recommended
-                    .filter(product => product.id !== Number(id))
-                    .map(product => (
-                        <Recommended
-                            name={product.name}
-                            description={product.description}
-                            imageUrl={product.imageUrl}
-                            id={product.id}
-                            price={product.price}
-                            key={product.id}
-                        />
-                    ))}
+
+                {/*РЕКОМЕНДАЦИИ ВЫНЕСТИ В ОТДЕЛЬНЫЙ КОМПОНЕНТ!!!!! ДОБАВИТЬ useEffect ДЛЯ ЕДИНСТВЕННОГО РЕНДЕРА!!!!!!*/}
+                {/*{recommended*/}
+                {/*    .filter(product => product.id !== Number(id))*/}
+                {/*    .map(product => (*/}
+                {/*        <Recommended*/}
+                {/*            name={product.name}*/}
+                {/*            description={product.description}*/}
+                {/*            imageUrl={product.imageUrl}*/}
+                {/*            id={product.id}*/}
+                {/*            price={product.price}*/}
+                {/*            key={product.id}*/}
+                {/*        />*/}
+                {/*    ))}*/}
             </section>
 
         </>

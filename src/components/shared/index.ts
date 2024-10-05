@@ -9,3 +9,4 @@ export {SkeletonRecommended} from "./skeleton-recommended";
 export {CartButton} from "./cart-button";
 export {CartDrawer} from "./cart-drawer";
 export {CartDrawerItem} from "./cart-drawer-item";
+export {ProductItemPage} from "./product-item-page";
