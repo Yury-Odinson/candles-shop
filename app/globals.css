@@ -76,6 +76,7 @@ html {
     * {
         @apply border-border;
     }
+
     body {
         @apply bg-background text-foreground;
     }
@@ -97,20 +98,20 @@ html {
     background-color: rgb(249 250 251);
 }
 
-::-webkit-scrollbar {
-    width: 10px;
+.scrollbar::-webkit-scrollbar {
+    width: 4px;
 }
 
-::-webkit-scrollbar-track {
-    display: none;
-    width: 50px;
-    background-color: lime;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0);
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 6px;
+    background: #fff;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: #dbdadd;
-    border-radius: 50px;
-    transition: 0.25s;
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #dbdadd;
+    border-radius: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #dbdadd;
 }
