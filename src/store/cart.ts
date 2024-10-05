@@ -56,7 +56,7 @@ export const useCartStore = create<CartState>((set, get) => ({
             set({loading: true, error: false});
             const data = await Api.cart.removeCartItem(id);
             set(getCartItemsDetails(data));
-            // console.log(data);
+            console.log(data);
         } catch (error) {
             console.log(error);
             set({error: true});
@@ -70,7 +70,7 @@ export const useCartStore = create<CartState>((set, get) => ({
             set({loading: true, error: false});
             const data = await Api.cart.addCartItem(values);
             set(getCartItemsDetails(data));
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             console.log(error);
             set({error: true});

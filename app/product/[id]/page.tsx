@@ -13,6 +13,8 @@ export default async function ProductPage({params: {id}}) {
         return notFound();
     }
 
+    console.log(product)
+
     // const recommended = await prisma.product.findMany({
     //     where: {
     //         categoryId: product.categoryId
@@ -23,13 +25,7 @@ export default async function ProductPage({params: {id}}) {
         <>
             <section>
 
-                <ProductItemPage
-                    id={product.id}
-                    name={product.name}
-                    imageUrl={product.imageUrl}
-                    description={product.description}
-                    price={product.price}
-                />
+                <ProductItemPage product={product}/>
 
             </section>
 

@@ -14,5 +14,5 @@ export const removeCartItem = async (id: number): Promise<Cart> => {
 };
 
 export const addCartItem = async (values: CreateCartItemValues): Promise<Cart> => {
-    return (await axiosInstance.delete<Cart>("/cart/" + values)).data;
+    return (await axiosInstance.post<Cart>("/cart/", values)).data;
 };
