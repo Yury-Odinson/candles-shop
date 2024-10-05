@@ -15,11 +15,11 @@ export default async function ProductPage({params: {id}}) {
 
     console.log(product)
 
-    // const recommended = await prisma.product.findMany({
-    //     where: {
-    //         categoryId: product.categoryId
-    //     }
-    // });
+    const recommended = await prisma.product.findMany({
+        where: {
+            categoryId: product.categoryId
+        }
+    });
 
     return (
         <>
@@ -36,19 +36,18 @@ export default async function ProductPage({params: {id}}) {
                 justify-around gap-6 max-w-[1440px]"
             >
 
-                {/*РЕКОМЕНДАЦИИ ВЫНЕСТИ В ОТДЕЛЬНЫЙ КОМПОНЕНТ!!!!! ДОБАВИТЬ useEffect ДЛЯ ЕДИНСТВЕННОГО РЕНДЕРА!!!!!!*/}
-                {/*{recommended*/}
-                {/*    .filter(product => product.id !== Number(id))*/}
-                {/*    .map(product => (*/}
-                {/*        <Recommended*/}
-                {/*            name={product.name}*/}
-                {/*            description={product.description}*/}
-                {/*            imageUrl={product.imageUrl}*/}
-                {/*            id={product.id}*/}
-                {/*            price={product.price}*/}
-                {/*            key={product.id}*/}
-                {/*        />*/}
-                {/*    ))}*/}
+                {recommended
+                    .filter(product => product.id !== Number(id))
+                    .map(product => (
+                        <Recommended
+                            name={product.name}
+                            description={product.description}
+                            imageUrl={product.imageUrl}
+                            id={product.id}
+                            price={product.price}
+                            key={product.id}
+                        />
+                    ))}
             </section>
 
         </>

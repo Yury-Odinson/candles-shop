@@ -22,7 +22,7 @@ export const Recommended: React.FC<Props> = ({name, imageUrl, id, price}) => {
             .then((image) => {
                 setUrl(URL.createObjectURL(image));
             });
-    });
+    }, []);
 
     if (!url) {
         return <SkeletonRecommended/>
