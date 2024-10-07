@@ -2,16 +2,9 @@ import React from "react";
 import {Plus} from "lucide-react";
 import {Button} from "@/components/ui";
 import Link from "next/link";
+import {ProductRenderClient} from "../../../services/types";
 
-interface Props {
-    name: string,
-    description: string,
-    imageURL: string,
-    id: string,
-    price: string
-}
-
-export const Card: React.FC<Props> = ({name, description, imageURL, id, price}) => {
+export const Card: React.FC<ProductRenderClient> = ({name, description, imageURL, id, price}) => {
     return (
         <article className="flex flex-col justify-between bg-secondary rounded-2xl min-w-[200px]" id={`card_${id}`}>
 

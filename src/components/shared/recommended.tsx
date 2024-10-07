@@ -3,16 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import {SkeletonRecommended} from "@/components/shared/skeleton-recommended";
+import {ProductRenderClient} from "../../../services/types";
 
-interface Props {
-    name: string,
-    description: string,
-    imageUrl: string,
-    id: string,
-    price: string
-}
-
-export const Recommended: React.FC<Props> = ({name, imageUrl, id, price}) => {
+export const Recommended: React.FC<ProductRenderClient> = ({name, imageUrl, id, price}) => {
 
     const [url, setUrl] = React.useState<string>("");
 

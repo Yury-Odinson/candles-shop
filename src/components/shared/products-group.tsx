@@ -5,18 +5,11 @@ import {useIntersection} from "react-use";
 import {cn} from "@/lib/utils";
 import {Card} from "@/components/shared/card";
 import {useCategoryStore} from "@/store/category";
-
-interface Item {
-    name: string,
-    description: string,
-    imageUrl: string,
-    id: string,
-    price: string
-}
+import {ProductRenderClient} from "../../../services/types";
 
 interface Props {
     title: string,
-    items: any,
+    items: ProductRenderClient[],
     categoryId: number,
     className?: string
 }
@@ -42,10 +35,10 @@ export const ProductsGroup: React.FC<Props> = ({title, items, categoryId, classN
                      key={categoryId}
                      id={title} ref={intersectionRef}>
 
-                {items?.map((product: Item, index: string) => (
+                {items?.map((product: ProductRenderClient, index: number) => (
                     <Card name={product.name}
                           description={product.description}
-                          imageURL={product.imageUrl}
+                          imageUrl={product.imageUrl}
                           id={product.id}
                           price={product.price}
                           key={index}
