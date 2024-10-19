@@ -3,8 +3,18 @@ import {Plus} from "lucide-react";
 import {Button} from "@/components/ui";
 import Link from "next/link";
 import {ProductRenderClient} from "../../../services/types";
+import {useCartStore} from "@/store/cart";
 
 export const Card: React.FC<ProductRenderClient> = ({name, description, imageUrl, id, price}) => {
+
+    const addCartItem = useCartStore(state => state.addCartItem);
+
+    const onAddProduct = () => {
+        addCartItem({
+            productId: id
+        });
+    };
+
     return (
         <article className="flex flex-col justify-between bg-secondary rounded-2xl min-w-[200px]" id={`card_${id}`}>
 
@@ -19,7 +29,7 @@ export const Card: React.FC<ProductRenderClient> = ({name, description, imageUrl
             <div className="flex mt-5 justify-between">
                 <p className="text-2xl font-bold pl-4">{price} р.</p>
 
-                <Button variant="outline" className="flex gap-2 font-bold">
+                <Button variant="outline" className="flex gap-2 font-bold" onClick={onAddProduct}>
                     <Plus/>
                     <span>Добавить </span>
                 </Button>
