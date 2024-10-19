@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Nunito} from 'next/font/google';
 import "./globals.css";
 import {Header} from "@/components/shared";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
     title: "Candles shop"
@@ -26,6 +27,7 @@ export default function RootLayout({
 
         <main>
             {children}
+            <Toaster/>
         </main>
 
         </body>

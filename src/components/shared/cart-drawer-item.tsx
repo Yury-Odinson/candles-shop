@@ -31,7 +31,7 @@ export const CartDrawerItem: React.FC<Props> = ({
                     <CountButton onClick={onClickCountButton} value={quantity}/>
                     <div className="flex items-center gap-2">
                         <CartItem.Price value={price}/>
-                        <Trash2Icon size={16} color="gray" onClick={onClickRemove}/>
+                        <Trash2Icon size={16} color="gray" className="cursor-pointer" onClick={onClickRemove}/>
                     </div>
                 </div>
 

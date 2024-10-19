@@ -6,6 +6,7 @@ import React from "react";
 import {Product} from "../../../services/types";
 import {cn} from "@/lib/utils";
 import {useCartStore} from "@/store/cart";
+import toast from "react-hot-toast";
 
 interface Props {
     product: Product;
@@ -15,11 +16,18 @@ interface Props {
 export const ProductItemPage: React.FC<Props> = ({product, className}) => {
 
     const addCartItem = useCartStore(state => state.addCartItem);
+    const loading = useCartStore(state => state.loading);
 
-    const onAddProduct = () => {
-        addCartItem({
-            productId: product.id
-        });
+    const onAddProduct = async (productItemId: number) => {
+        try {
+            await addCartItem({
+                productId: productItemId
+            });
+            toast.success("Добавлено в корзину");
+        } catch (error) {
+            toast.error("Не удалось добавить в корзину");
+            console.error(error);
+        }
     };
 
     return (
@@ -36,7 +44,8 @@ export const ProductItemPage: React.FC<Props> = ({product, className}) => {
 
                 <div className="flex items-center justify-end gap-6 ">
                     <span className="ml-auto text-2xl font-bold">{product.price} руб.</span>
-                    <Button variant="default" className="flex gap-2" onClick={onAddProduct}>
+                    <Button variant="default" className="flex gap-2 w-48" onClick={() => onAddProduct(product.id)}
+                            loading={loading}>
                         <span>Добавить в корзину</span>
                         <CirclePlus/>
                     </Button>
