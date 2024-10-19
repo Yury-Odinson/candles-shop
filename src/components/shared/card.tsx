@@ -4,14 +4,14 @@ import {Button} from "@/components/ui";
 import Link from "next/link";
 import {ProductRenderClient} from "../../../services/types";
 
-export const Card: React.FC<ProductRenderClient> = ({name, description, imageURL, id, price}) => {
+export const Card: React.FC<ProductRenderClient> = ({name, description, imageUrl, id, price}) => {
     return (
         <article className="flex flex-col justify-between bg-secondary rounded-2xl min-w-[200px]" id={`card_${id}`}>
 
             <Link href={"/product/" + id}>
                 <div>
                     <p className="p-4 text-2xl font-bold">{name}</p>
-                    <img src={imageURL} alt={name}/>
+                    <img className="w-full h-[350px]" src={imageUrl} alt={name}/>
                     <p className="mt-2 p-2 text-justify indent-5">{description}</p>
                 </div>
             </Link>
