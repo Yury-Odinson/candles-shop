@@ -8,7 +8,12 @@ interface Props {
     className?: string;
 }
 
-const categories: object[] = [
+interface Category {
+    id: number;
+    name: string
+}
+
+const categories: Category[] = [
     {id: 1, name: "Свечи"},
     {id: 2, name: "Наборы"},
     {id: 3, name: "В подарок"},

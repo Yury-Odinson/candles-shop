@@ -7,6 +7,7 @@ import {ArrowRight} from "lucide-react";
 import Link from "next/link";
 import {CartDrawerItem} from "@/components/shared/cart-drawer-item";
 import {useCartStore} from "@/store/cart";
+import {cn} from "@/lib/utils";
 
 interface Props {
     className?: string;
@@ -38,7 +39,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, 
                     <SheetTitle>В корзине {items.length} товара</SheetTitle>
                 </SheetHeader>
 
-                <div className="my-5 -mx-6 flex flex-1 flex-col gap-2 overflow-y-scroll">
+                <div className={cn("my-5 -mx-6 flex flex-1 flex-col gap-2 overflow-y-scroll" + className)}>
 
                     {
                         items.map((item) => (

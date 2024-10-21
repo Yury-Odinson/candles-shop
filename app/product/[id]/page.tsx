@@ -3,7 +3,13 @@ import {notFound} from "next/navigation";
 import React from "react";
 import {ProductItemPage, Recommended} from "@/components/shared";
 
-export default async function ProductPage({params: {id}}) {
+interface Props {
+    params: {
+        id: string;
+    };
+}
+
+export default async function ProductPage({params: {id}}: Props) {
 
     const product = await prisma.product.findFirst({
         where: {id: Number(id)}
@@ -12,8 +18,6 @@ export default async function ProductPage({params: {id}}) {
     if (!product) {
         return notFound();
     }
-
-    console.log(product)
 
     const recommended = await prisma.product.findMany({
         where: {
