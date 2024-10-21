@@ -3,7 +3,13 @@ import {notFound} from "next/navigation";
 import React from "react";
 import {ProductItemPage, Recommended} from "@/components/shared";
 
-export default async function ProductPage({params: {id}}) {
+interface Props {
+    params: {
+        id: string;
+    };
+}
+
+export default async function ProductPage({params: {id}}: Props) {
 
     const product = await prisma.product.findFirst({
         where: {id: Number(id)}
@@ -13,13 +19,11 @@ export default async function ProductPage({params: {id}}) {
         return notFound();
     }
 
-    console.log(product)
-
-    // const recommended = await prisma.product.findMany({
-    //     where: {
-    //         categoryId: product.categoryId
-    //     }
-    // });
+    const recommended = await prisma.product.findMany({
+        where: {
+            categoryId: product.categoryId
+        }
+    });
 
     return (
         <>
@@ -36,19 +40,18 @@ export default async function ProductPage({params: {id}}) {
                 justify-around gap-6 max-w-[1440px]"
             >
 
-                {/*РЕКОМЕНДАЦИИ ВЫНЕСТИ В ОТДЕЛЬНЫЙ КОМПОНЕНТ!!!!! ДОБАВИТЬ useEffect ДЛЯ ЕДИНСТВЕННОГО РЕНДЕРА!!!!!!*/}
-                {/*{recommended*/}
-                {/*    .filter(product => product.id !== Number(id))*/}
-                {/*    .map(product => (*/}
-                {/*        <Recommended*/}
-                {/*            name={product.name}*/}
-                {/*            description={product.description}*/}
-                {/*            imageUrl={product.imageUrl}*/}
-                {/*            id={product.id}*/}
-                {/*            price={product.price}*/}
-                {/*            key={product.id}*/}
-                {/*        />*/}
-                {/*    ))}*/}
+                {recommended
+                    .filter(product => product.id !== Number(id))
+                    .map(product => (
+                        <Recommended
+                            name={product.name}
+                            description={product.description}
+                            imageUrl={product.imageUrl}
+                            id={product.id}
+                            price={product.price}
+                            key={product.id}
+                        />
+                    ))}
             </section>
 
         </>

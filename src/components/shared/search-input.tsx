@@ -6,7 +6,7 @@ import {Search} from "lucide-react";
 import {useClickAway, useDebounce} from "react-use";
 import Link from "next/link";
 import {Api} from "../../../services/api-client";
-import {Product} from "@prisma/client";
+import {Product} from "../../../services/types";
 
 interface Props {
     className?: string;
@@ -61,7 +61,7 @@ export const SearchInput: React.FC<Props> = ({className}) => {
 
                     <div className="flex flex-col gap-2 my-2 max-h-[50vh] overflow-y-scroll empty:hidden">
                         {
-                            products.map(product => (
+                            products.map(product  => (
                                 <Link
                                     key={product.id}
                                     href={`/product/${product.id}`}

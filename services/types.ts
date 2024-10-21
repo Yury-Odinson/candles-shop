@@ -39,5 +39,5 @@ export interface Cart {
 
 export interface CreateCartItemValues {
     productId: number;
-    quantity: number;
+    quantity?: number;
 }

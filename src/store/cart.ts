@@ -13,11 +13,11 @@ export interface CartState {
     fetchCartItem: () => Promise<void>;
     // Запрос на обновление кол-ва
     updateItemQuantity: (id: number, quantity: number) => Promise<void>;
-    addCartItem: (values: any) => Promise<void>;
+    addCartItem: (values: CreateCartItemValues) => Promise<void>;
     removeCartItem: (id: number) => Promise<void>;
 }
 
-export const useCartStore = create<CartState>((set, get) => ({
+export const useCartStore = create<CartState>((set) => ({
     items: [],
     error: false,
     loading: true,
