@@ -1,6 +1,14 @@
 "use client";
 
-import {Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger
+} from "@/components/ui/sheet";
 import React from "react";
 import {Button} from "@/components/ui";
 import {ArrowRight} from "lucide-react";
@@ -30,6 +38,20 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, 
         updateQuantity(id, newQuantity);
     };
 
+    if (items.length <= 0) {
+        return (
+            <Sheet>
+                <SheetTrigger asChild>{children}</SheetTrigger>
+                <SheetContent className="flex flex-col items-center justify-center bg-gray-100">
+                    <SheetTitle>
+                        <p className="text-gray-600 font-light">В корзине пусто</p>
+                    </SheetTitle>
+                    <SheetDescription/>
+                </SheetContent>
+            </Sheet>
+        );
+    }
+
     return (
         <Sheet>
             <SheetTrigger asChild>{children}</SheetTrigger>
@@ -37,6 +59,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({children, 
 
                 <SheetHeader>
                     <SheetTitle>В корзине {items.length} товара</SheetTitle>
+                    <SheetDescription/>
                 </SheetHeader>
 
                 <div className={cn("my-5 -mx-6 flex flex-1 flex-col gap-2 overflow-y-scroll" + className)}>
