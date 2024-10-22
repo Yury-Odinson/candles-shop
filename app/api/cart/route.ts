@@ -70,15 +70,15 @@ export async function POST(req: NextRequest) {
                     quantity: findCartItem.quantity + 1
                 }
             });
+        } else {
+            await prisma.cartItem.create({
+                data: {
+                    cartId: userCart.id,
+                    productId: data.productId,
+                    quantity: 1
+                }
+            });
         }
-
-        await prisma.cartItem.create({
-            data: {
-                cartId: userCart.id,
-                productId: data.productId,
-                quantity: 1
-            }
-        });
 
         const updatedUserCart = await updateCartTotalAmount(token);
 
