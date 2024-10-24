@@ -12,19 +12,20 @@ import {SearchInput} from "@/components/shared/search-input";
 import {CartButton} from "@/components/shared/cart-button";
 
 interface Props {
+    hasSearch?: boolean;
+    hasCart?: boolean;
     className?: string;
 }
 
-export const Header: React.FC<Props> = ({className}) => {
+export const Header: React.FC<Props> = ({ hasSearch = true, hasCart = true, className}) => {
 
     const path = usePathname();
 
     return (
         <>
-            <header className={cn("bg-gradient-to-b from-gray-200 to-white/80 bg-white" +
-                "hover:opacity-100 transition", [className])}>
+            <header className={cn("", [className])}>
                 <div className="mx-auto max-w-[1440px]">
-                    <nav className="py-2 px-4 flex items-center gap-6">
+                    <nav className="py-2 px-4 flex items-center justify-between gap-6">
                         <Link href="/">
                             <div className="flex items-center gap-2">
                                 <Image
@@ -42,9 +43,10 @@ export const Header: React.FC<Props> = ({className}) => {
                             </div>
                         </Link>
 
-                        <SearchInput/>
+                        {hasSearch && <SearchInput/>}
 
-                        <CartButton/>
+                        {hasCart ? <CartButton/> : null}
+
 
                     </nav>
                 </div>

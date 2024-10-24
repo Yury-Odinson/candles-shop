@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {Nunito} from 'next/font/google';
 import "./globals.css";
-import { Toaster } from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 
 export const metadata: Metadata = {
     title: "Candles shop"
@@ -22,10 +22,8 @@ export default function RootLayout({
         <html lang="en">
         <body className={nunito.className}>
 
-        <main>
-            {children}
-            <Toaster/>
-        </main>
+        {children}
+        <Toaster/>
 
         </body>
         </html>
