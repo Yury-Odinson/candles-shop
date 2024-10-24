@@ -10,3 +10,5 @@ export {CartButton} from "./cart-button";
 export {CartDrawer} from "./cart-drawer";
 export {CartDrawerItem} from "./cart-drawer-item";
 export {ProductItemPage} from "./product-item-page";
+export {CheckoutBlock} from "./checkout-block";
+export {CheckoutSidebar} from "./checkout-sidebar";

@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function CheckoutLayout({children}) {
     return (
-        <main>
-            <Header hasSearch={false} hasCart={false} className="bg-secondary" />
+        <main className="bg-secondary">
+            <Header hasSearch={false} hasCart={false}/>
             {children}
         </main>
     );

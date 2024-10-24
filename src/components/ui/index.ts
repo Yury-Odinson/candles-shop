@@ -6,3 +6,6 @@ export {Drawer} from  "./drawer";
 export {Select} from  "./select";
 export {Skeleton} from  "./skeleton";
 export {Switch} from  "./switch";
+export {Input} from "./input";
+export {Label} from "./label";
+export {Textarea} from "./textarea";
