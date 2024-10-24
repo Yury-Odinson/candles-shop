@@ -1,4 +1,4 @@
-import {prisma} from "../../../prisma/prisma-client";
+import {prisma} from "../../../../prisma/prisma-client";
 import {notFound} from "next/navigation";
 import React from "react";
 import {ProductItemPage, Recommended} from "@/components/shared";

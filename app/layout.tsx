@@ -1,7 +1,6 @@
 import type {Metadata} from "next";
 import {Nunito} from 'next/font/google';
 import "./globals.css";
-import {Header} from "@/components/shared";
 import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
@@ -22,8 +21,6 @@ export default function RootLayout({
     return (
         <html lang="en">
         <body className={nunito.className}>
-
-        <Header/>
 
         <main>
             {children}
